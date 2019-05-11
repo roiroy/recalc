@@ -58,10 +58,12 @@ class CalculatorRoot extends React.Component {
   }
 
   render() {
+    const recipes = Object.keys(this.props.calculator.outputToRecipe)
+    recipes.sort()
     return (
       <div>
         <h4>What and how much do you desire?</h4>
-        <CalculatorInput recipes={Object.keys(this.props.calculator.outputToRecipe)}
+        <CalculatorInput recipes={recipes}
           recipe={this.state.recipe} requiredQty={this.state.requiredQty} onChange={this.onInputChange} />
         <h4>Build tree</h4>
         <Treebeard data={this.state.treebeardTree} onToggle={this.onBuildTreeToggle} />
@@ -178,7 +180,9 @@ class CalculatorInput extends React.Component {
   }
 
   onQtyChanged(event) {
-    const state = { requiredQty: Fraction(parseInt(event.target.value), 15) }
+    const intVal = parseFloat(event.target.value)
+    if (isNaN(intVal)) return
+    const state = { requiredQty: Fraction(intVal, 15) }
     this.setState(() => state)
     this.props.onChange(state)
   }
