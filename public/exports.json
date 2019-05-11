@@ -1,0 +1,3451 @@
+{
+  "timestamp": "2019-05-11T11:35:27.6175512Z",
+  "recipes": [
+    {
+      "name": "Adhesive",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Chemicals",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Plastic",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Adhesive",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Apples",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Apples",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ]
+    },
+    {
+      "name": "AppleSmoothie",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Apples",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AppleSmoothie",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Axles",
+      "days": 60.0,
+      "inputs": [
+        {
+          "name": "Steel",
+          "amount": 6,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Tire",
+          "amount": 4,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Axles",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "BagOfChips",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Potato",
+          "amount": 3,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Paper Roll",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BagOfChips",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "BeefStew",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Beef",
+          "amount": 3,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        },
+        {
+          "name": "Vegetables",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BeefStew",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Beer",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "WoodenBarrel",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Hops",
+          "amount": 3,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Yeast",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Beer",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Berries",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Berries",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ]
+    },
+    {
+      "name": "BerryPie",
+      "days": 40.0,
+      "inputs": [
+        {
+          "name": "Berries",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Dough",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Sugar",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BerryPie",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "BerrySmoothie",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Berries",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BerrySmoothie",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Biofuel",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Potato",
+          "amount": 3,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "RefinedOil",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Biofuel",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "BodyChassis",
+      "days": 120.0,
+      "inputs": [
+        {
+          "name": "ExteriorBody",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "InteriorBody",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BodyChassis",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Books",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "PrintedPaper",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Books",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Bottles",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Glass",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Bottles",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Brandy",
+      "days": 45.0,
+      "inputs": [
+        {
+          "name": "Wine",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Bottles",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Brandy",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Burgers",
+      "days": 40.0,
+      "inputs": [
+        {
+          "name": "Dough",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Beef",
+          "amount": 1,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        },
+        {
+          "name": "Vegetables",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Burgers",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "CannedFish",
+      "days": 40.0,
+      "inputs": [
+        {
+          "name": "Cans",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Fish",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CannedFish",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "CannedMutton",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Mutton",
+          "amount": 3,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        },
+        {
+          "name": "Cans",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CannedMutton",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Cans",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Steel",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cans",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "RawRubber",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RawRubber",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ]
+    },
+    {
+      "name": "Cardboard",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "HeavyPulp",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cardboard",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "CarPrototype",
+      "days": 360.0,
+      "inputs": [
+        {
+          "name": "BodyChassis",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "RollingChassis",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Car",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "CarSeat",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "FurnitureBase(S)",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Cotton",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CarSeat",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Ceramics",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Glass",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Sand",
+          "amount": 3,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Ceramics",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Cheese",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Milk",
+          "amount": 3,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        },
+        {
+          "name": "Water",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cheese",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Chemicals",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "Gas",
+          "amount": 3,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Chemicals",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Chickens",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Wheat",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "ChickenMeat",
+          "amount": 1,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        },
+        {
+          "name": "Eggs",
+          "amount": 2,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "ChickenSoup",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "ChickenMeat",
+          "amount": 3,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        },
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Vegetables",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "ChickenSoup",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "ChocolateBar",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Cocoa",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Milk",
+          "amount": 2,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        },
+        {
+          "name": "Sugar",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "ChocolateBar",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "ChocolateCake",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Flour",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Eggs",
+          "amount": 1,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        },
+        {
+          "name": "Cocoa",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "ChocolateCake",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "CoalMine",
+      "days": 10.0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Coal",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ]
+    },
+    {
+      "name": "Cocoas",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cocoa",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ]
+    },
+    {
+      "name": "CombustionEngine",
+      "days": 60.0,
+      "inputs": [
+        {
+          "name": "Biofuel",
+          "amount": 8,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Engine Block",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CombustionEngine",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "CopperMine",
+      "days": 10.0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Copper",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ]
+    },
+    {
+      "name": "CopperTubing",
+      "days": 15.0,
+      "inputs": [
+        {
+          "name": "Copper",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CopperTubing",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "CopperWire",
+      "days": 15.0,
+      "inputs": [
+        {
+          "name": "Copper",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CopperWire",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Cotton",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cotton",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ]
+    },
+    {
+      "name": "Cows",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Wheat",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Beef",
+          "amount": 1,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        },
+        {
+          "name": "Milk",
+          "amount": 1,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        },
+        {
+          "name": "Leather",
+          "amount": 1,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "DeluxeBooks",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "PrintedPaper",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Leather",
+          "amount": 1,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "DeluxeBooks",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Diodes",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "CopperWire",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Glass",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Diodes",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Dough",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Flour",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Dough",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Dye",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "Berries",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Dye",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "ExteriorBody",
+      "days": 60.0,
+      "inputs": [
+        {
+          "name": "SteelFrame",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Headlights",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "ExteriorBody",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Fibers",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "Cotton",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Fibers",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Fish",
+      "days": 10.0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Fish",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ]
+    },
+    {
+      "name": "Flour",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Wheat",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Flour",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "FurnitureBase(L)",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "WoodenPlanks",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Furniture Base (L)",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "FurnitureBase(S)",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "WoodenPlanks",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FurnitureBase(S)",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "GasPump",
+      "days": 10.0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Gas",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ]
+    },
+    {
+      "name": "Glass",
+      "days": 15.0,
+      "inputs": [
+        {
+          "name": "Sand",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Coal",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Glass",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "GrapeJuice",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Grapes",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GrapeJuice",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Grapes",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Grapes",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ]
+    },
+    {
+      "name": "HardCider",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Apples",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Sugar",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "HardCider",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Headlights",
+      "days": 40.0,
+      "inputs": [
+        {
+          "name": "LightBulb",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Glass",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Headlights",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "HeavyFabric",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Fibers",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Leather",
+          "amount": 1,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "HeavyFabric",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "HeavyPulp",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "Wood",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "HeavyPulp",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Hops",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Hops",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ]
+    },
+    {
+      "name": "Ink",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Coal",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Water",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Ink",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "InteriorBody",
+      "days": 60.0,
+      "inputs": [
+        {
+          "name": "CarSeat",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "InteriorLining",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "InteriorBody",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "InteriorLining",
+      "days": 40.0,
+      "inputs": [
+        {
+          "name": "HeavyFabric",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Cardboard",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "InteriorLining",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "IronMine",
+      "days": 10.0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IronOre",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ]
+    },
+    {
+      "name": "LeatherFurniture",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "FurnitureBase(S)",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Leather",
+          "amount": 2,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LeatherFurniture",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "LightBulb",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "CopperWire",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Glass",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LightBulb",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "LightFabric",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Fibers",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Dye",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LightFabric",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Lumberyard",
+      "days": 10.0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Wood",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ]
+    },
+    {
+      "name": "Newspapers",
+      "days": 40.0,
+      "inputs": [
+        {
+          "name": "PrintedPaper",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Ink",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Newspapers",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "OfficeFurniture",
+      "days": 45.0,
+      "inputs": [
+        {
+          "name": "Furniture Base (L)",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Steel",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OfficeFurniture",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "OilDrill",
+      "days": 10.0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Oil",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ]
+    },
+    {
+      "name": "OilDrillOffshore",
+      "days": 10.0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Oil",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ]
+    },
+    {
+      "name": "OrangeJuice",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Oranges",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OrangeJuice",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Oranges",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Oranges",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ]
+    },
+    {
+      "name": "OrangeSoda",
+      "days": 40.0,
+      "inputs": [
+        {
+          "name": "SodaWater",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "OrangeJuice",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Bottles",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OrangeSoda",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Oven",
+      "days": 40.0,
+      "inputs": [
+        {
+          "name": "Stovetop",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Ceramics",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Oven",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Paints",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Chemicals",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Dye",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Paint",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Paper Roll",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "Wood",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Paper Roll",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Pizza",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Dough",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Cheese",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Vegetables",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Pizza",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Plastic",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "Oil",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Gas",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Plastic",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "PlasticFurniture",
+      "days": 45.0,
+      "inputs": [
+        {
+          "name": "FurnitureBase(S)",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Plastic",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "PlasticFurniture",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Potatoes",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Potato",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ]
+    },
+    {
+      "name": "PrintedPaper",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Paper Roll",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Ink",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "PrintedPaper",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Radiator",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Steel",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "CopperTubing",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Radiator",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "RadioReceiver",
+      "days": 40.0,
+      "inputs": [
+        {
+          "name": "Diodes",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "FurnitureBase(S)",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RadioReceiver",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "RefinedOil",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "Oil",
+          "amount": 3,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RefinedOil",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Refrigerator",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "CopperTubing",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Steel",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Gas",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Refrigerator",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "RollingChassis",
+      "days": 120.0,
+      "inputs": [
+        {
+          "name": "Axles",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "CombustionEngine",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RollingChassis",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Rubber",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "RawRubber",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Rubber",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "RubberTubes",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Rubber",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RubberTubes",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Sand",
+      "days": 10.0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Sand",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ]
+    },
+    {
+      "name": "Sheep",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Wheat",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Mutton",
+          "amount": 1,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        },
+        {
+          "name": "Wool",
+          "amount": 2,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "SodaWater",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Sugar",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SodaWater",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Soup",
+      "days": 15.0,
+      "inputs": [
+        {
+          "name": "Vegetables",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Soup",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Steel",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "IronOre",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Coal",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Steel",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "SteelBarrels",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Steel",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SteelBarrel",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "SteelFrame",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Steel",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SteelFrame",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Stovetop",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Steel",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "CopperTubing",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Stovetop",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "SugarCane",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Sugar",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ]
+    },
+    {
+      "name": "SummerClothes",
+      "days": 45.0,
+      "inputs": [
+        {
+          "name": "LightFabric",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Dye",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SummerClothes",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Telephone",
+      "days": 40.0,
+      "inputs": [
+        {
+          "name": "Diodes",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Plastic",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Telephone",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Tire",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Rubber",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Tire",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Vegetables",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Vegetables",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ]
+    },
+    {
+      "name": "Vodka",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Potato",
+          "amount": 3,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Yeast",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "WoodenBarrel",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Vodka",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Water",
+      "days": 10.0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ]
+    },
+    {
+      "name": "Wheat",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Wheat",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ]
+    },
+    {
+      "name": "Wine",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Grapes",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Wine",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "WinterClothes",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "HeavyFabric",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Wool",
+          "amount": 2,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "WinterClothes",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "WoodenBarrel",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "WoodenPlanks",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "WoodenBarrel",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "WoodenPlanks",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "Wood",
+          "amount": 3,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "WoodenPlanks",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "WorkClothes",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "HeavyFabric",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Leather",
+          "amount": 2,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "WorkClothes",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Yeast",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Sugar",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Yeast",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Waffles",
+      "days": 40.0,
+      "inputs": [
+        {
+          "name": "Sugar",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Dough",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Waffles",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "GrainWhiskey",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Wheat",
+          "amount": 3,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "WoodenBarrel",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Yeast",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GrainWhiskey",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "First Computer",
+      "days": 360.0,
+      "inputs": [
+        {
+          "name": "Interface",
+          "amount": 6,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Processor",
+          "amount": 6,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Computer Memory",
+          "amount": 6,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "First Computer",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Premade Dinner",
+      "days": 360.0,
+      "inputs": [
+        {
+          "name": "Chicken Dinner",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Dinner Container",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "BerryPie",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Premade Dinner",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Olive Oil",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Olives",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Olive Oil",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Fried Chicken",
+      "days": 90.0,
+      "inputs": [
+        {
+          "name": "ChickenMeat",
+          "amount": 3,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        },
+        {
+          "name": "Flour",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Fried Chicken",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Cooked Vegetables",
+      "days": 90.0,
+      "inputs": [
+        {
+          "name": "Vegetables",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Potato",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        },
+        {
+          "name": "Olive Oil",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Cooked Vegetables",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Chicken Dinner",
+      "days": 180.0,
+      "inputs": [
+        {
+          "name": "Fried Chicken",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Cooked Vegetables",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "OrangeSoda",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Chicken Dinner",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Capacitors",
+      "days": 40.0,
+      "inputs": [
+        {
+          "name": "CopperWire",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Cans",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Ceramics",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Capacitors",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Computer Memory",
+      "days": 180.0,
+      "inputs": [
+        {
+          "name": "Glass Tubes",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Capacitors",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "RubberTubes",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Computer Memory",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Glass Tubes",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Glass",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Glass Tubes",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Binary Switcher",
+      "days": 120.0,
+      "inputs": [
+        {
+          "name": "Steel",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Diodes",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "FurnitureBase(S)",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Binary Switcher",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Engine Block",
+      "days": 40.0,
+      "inputs": [
+        {
+          "name": "Radiator",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Steel",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Engine Block",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Processor",
+      "days": 180.0,
+      "inputs": [
+        {
+          "name": "Binary Switcher",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "SteelFrame",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Processor",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Punch Cards",
+      "days": 45.0,
+      "inputs": [
+        {
+          "name": "Cardboard",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Punch Cards",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Interface",
+      "days": 180.0,
+      "inputs": [
+        {
+          "name": "Buttons",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Punch Cards",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "OfficeFurniture",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Interface",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Plastic Cutlery",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Plastic",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Plastic Cutlery",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Dinner Container",
+      "days": 180.0,
+      "inputs": [
+        {
+          "name": "ThinCardboard",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Plastic Cutlery",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Napkins",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Dinner Container",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Olives",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Olives",
+          "amount": 2,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ]
+    },
+    {
+      "name": "Buttons",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Plastic",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "CopperWire",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Buttons",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "ThinCardboard",
+      "days": 45.0,
+      "inputs": [
+        {
+          "name": "Cardboard",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "ThinCardboard",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Napkins",
+      "days": 45.0,
+      "inputs": [
+        {
+          "name": "LightFabric",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Napkins",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Concrete",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "Sand",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Water",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Concrete",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Reinforced Wall",
+      "days": 45.0,
+      "inputs": [
+        {
+          "name": "Concrete",
+          "amount": 3,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "SteelFrame",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Reinforced Wall",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Wall Panels",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "WoodenPlanks",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "CopperTubing",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Wall Panels",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Bricks",
+      "days": 15.0,
+      "inputs": [
+        {
+          "name": "Sand",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Bricks",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "WaterWell",
+      "days": 15.0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "Water",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ]
+    },
+    {
+      "name": "Fish and Chips",
+      "days": 45.0,
+      "inputs": [
+        {
+          "name": "Fish",
+          "amount": 3,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        },
+        {
+          "name": "BagOfChips",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Fish and Chips",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Fluff",
+      "days": 15.0,
+      "inputs": [
+        {
+          "name": "Cotton",
+          "amount": 1,
+          "priceFormula": "((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Fluff",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Toy Furniture",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "Wood",
+          "amount": 1,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Toy Furniture",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "WoodenTrain",
+      "days": 20.0,
+      "inputs": [
+        {
+          "name": "Wood",
+          "amount": 2,
+          "priceFormula": "upkeep / ((3 * recipeOutput) * (30 / recipeDays))"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Wooden Train",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Toy Train Set",
+      "days": 30.0,
+      "inputs": [
+        {
+          "name": "Wooden Train",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Steel",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Toy Train Set",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "TeddyBear",
+      "days": 25.0,
+      "inputs": [
+        {
+          "name": "Fluff",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Wool",
+          "amount": 2,
+          "priceFormula": "((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Teddy Bear",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Doll",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Fluff",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "LightFabric",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Doll",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Marbles",
+      "days": 35.0,
+      "inputs": [
+        {
+          "name": "Glass",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Dye",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Marbles",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    },
+    {
+      "name": "Dollhouse",
+      "days": 45.0,
+      "inputs": [
+        {
+          "name": "Doll",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "FurnitureBase(S)",
+          "amount": 1,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        },
+        {
+          "name": "Toy Furniture",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Dollhouse",
+          "amount": 2,
+          "priceFormula": "(ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput"
+        }
+      ]
+    }
+  ],
+  "producers": [
+    {
+      "name": "BreweryFactory",
+      "recipes": [
+        "Yeast",
+        "HardCider",
+        "Beer",
+        "Brandy",
+        "Vodka",
+        "Wine",
+        "Biofuel",
+        "GrainWhiskey"
+      ]
+    },
+    {
+      "name": "FurnitureFactory",
+      "recipes": [
+        "WoodenPlanks",
+        "WoodenBarrel",
+        "FurnitureBase(S)",
+        "FurnitureBase(L)",
+        "LeatherFurniture",
+        "OfficeFurniture",
+        "PlasticFurniture",
+        "CarSeat",
+        "Wall Panels",
+        "Reinforced Wall"
+      ]
+    },
+    {
+      "name": "CoalGatherer",
+      "recipes": [
+        "CoalMine"
+      ]
+    },
+    {
+      "name": "CopperGatherer",
+      "recipes": [
+        "CopperMine"
+      ]
+    },
+    {
+      "name": "CropFarm",
+      "recipes": [
+        "Wheat",
+        "Potatoes",
+        "Vegetables",
+        "Hops"
+      ]
+    },
+    {
+      "name": "DrinksFactory",
+      "recipes": [
+        "SodaWater",
+        "OrangeJuice",
+        "AppleSmoothie",
+        "OrangeSoda",
+        "BerrySmoothie",
+        "GrapeJuice"
+      ]
+    },
+    {
+      "name": "FishingGatherer",
+      "recipes": [
+        "Fish"
+      ]
+    },
+    {
+      "name": "FoodFactory",
+      "recipes": [
+        "Cheese",
+        "Flour",
+        "Dough",
+        "BerryPie",
+        "Pizza",
+        "Burgers",
+        "ChocolateBar",
+        "ChocolateCake",
+        "BeefStew",
+        "Waffles",
+        "Olive Oil",
+        "Cooked Vegetables",
+        "Fried Chicken",
+        "Chicken Dinner",
+        "Fish and Chips"
+      ]
+    },
+    {
+      "name": "GasGatherer",
+      "recipes": [
+        "GasPump"
+      ]
+    },
+    {
+      "name": "GlassworksSmelter",
+      "recipes": [
+        "CopperWire",
+        "Steel",
+        "SteelBarrels",
+        "Cans",
+        "Glass",
+        "Ceramics",
+        "Bottles",
+        "CopperTubing",
+        "SteelFrame",
+        "Glass Tubes",
+        "Computer Memory",
+        "Bricks",
+        "Concrete"
+      ]
+    },
+    {
+      "name": "ElectronicsFactory",
+      "recipes": [
+        "Diodes",
+        "Stovetop",
+        "Oven",
+        "Radiator",
+        "Telephone",
+        "Refrigerator",
+        "RadioReceiver",
+        "LightBulb",
+        "Capacitors",
+        "Headlights",
+        "Engine Block",
+        "Binary Switcher",
+        "Processor"
+      ]
+    },
+    {
+      "name": "IronGatherer",
+      "recipes": [
+        "IronMine"
+      ]
+    },
+    {
+      "name": "LivestockFarm",
+      "recipes": [
+        "Chickens",
+        "Cows",
+        "Sheep"
+      ]
+    },
+    {
+      "name": "LumberyardGatherer",
+      "recipes": [
+        "Lumberyard"
+      ]
+    },
+    {
+      "name": "OilSeaGatherer",
+      "recipes": [
+        "OilDrillOffshore"
+      ]
+    },
+    {
+      "name": "OilGatherer",
+      "recipes": [
+        "OilDrill"
+      ]
+    },
+    {
+      "name": "OrchardFarm",
+      "recipes": [
+        "Apples",
+        "Grapes",
+        "Oranges",
+        "RawRubber",
+        "Olives"
+      ]
+    },
+    {
+      "name": "PaperFactory",
+      "recipes": [
+        "DeluxeBooks",
+        "Paper Roll",
+        "Newspapers",
+        "Books",
+        "PrintedPaper",
+        "Ink",
+        "Cardboard",
+        "HeavyPulp",
+        "Punch Cards",
+        "ThinCardboard",
+        "Dinner Container"
+      ]
+    },
+    {
+      "name": "PetrochemicalFactory",
+      "recipes": [
+        "Plastic",
+        "Chemicals",
+        "Paints",
+        "RefinedOil",
+        "Adhesive",
+        "Rubber",
+        "Tire",
+        "RubberTubes",
+        "Plastic Cutlery",
+        "Buttons",
+        "Interface"
+      ]
+    },
+    {
+      "name": "PlantationFarm",
+      "recipes": [
+        "Berries",
+        "Cotton",
+        "Cocoas",
+        "SugarCane"
+      ]
+    },
+    {
+      "name": "PreservationFactory",
+      "recipes": [
+        "Soup",
+        "ChickenSoup",
+        "CannedFish",
+        "CannedMutton",
+        "BagOfChips"
+      ]
+    },
+    {
+      "name": "SandGatherer",
+      "recipes": [
+        "Sand"
+      ]
+    },
+    {
+      "name": "TextileFactory",
+      "recipes": [
+        "Fibers",
+        "Dye",
+        "LightFabric",
+        "HeavyFabric",
+        "WinterClothes",
+        "WorkClothes",
+        "SummerClothes",
+        "InteriorLining",
+        "Napkins"
+      ]
+    },
+    {
+      "name": "WaterGatherer",
+      "recipes": [
+        "Water"
+      ]
+    },
+    {
+      "name": "Automotive Factory",
+      "recipes": [
+        "InteriorBody",
+        "ExteriorBody",
+        "BodyChassis",
+        "Axles",
+        "CombustionEngine",
+        "RollingChassis"
+      ]
+    },
+    {
+      "name": "AssemblyFactory",
+      "recipes": [
+        "CarPrototype"
+      ]
+    },
+    {
+      "name": "ComputerFactory",
+      "recipes": [
+        "First Computer"
+      ]
+    },
+    {
+      "name": "DinnerFactory",
+      "recipes": [
+        "Premade Dinner"
+      ]
+    },
+    {
+      "name": "WaterWell",
+      "recipes": [
+        "WaterWell"
+      ]
+    },
+    {
+      "name": "ToyFactory",
+      "recipes": [
+        "Fluff",
+        "Toy Furniture",
+        "WoodenTrain",
+        "Toy Train Set",
+        "Doll",
+        "TeddyBear",
+        "Marbles",
+        "Dollhouse"
+      ]
+    }
+  ]
+}
