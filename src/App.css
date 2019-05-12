@@ -1,6 +1,6 @@
 body {
-  padding-left: 20pt;
-  padding-right: 20pt;
+  padding-left: 40px;
+  padding-right: 40px;
   color: #DB860F;
   background-color: #202020;
 }
@@ -8,42 +8,47 @@ body {
 .productName {
   color: white;
   display: inline-block;
-  width: 120pt;
+  width: 220px;
 }
 
 .recipeQty {
   color: white;
   font-weight: bold;
   display: inline-block;
-  width: 50pt;
+  width: 70px;
 }
 
 .factory {
   display: inline-block;
-  width: 140pt;
+  width: 170px;
 }
 
 .totalCost {
   text-align: right;
   display: inline-block;
-  width: 80pt;
+  width: 100px;
 }
 
 .recipeQtyRoundUp {
   text-align: right;
   display: inline-block;
-  width: 25pt;
+  width: 40px;
 }
 
 .singleFactoryCost {
   text-align: right;
   display: inline-block;
-  width: 55pt;
+  width: 80px;
 }
 
 .totalHeader {
   display: inline-block;
-  width: 420pt;  
+  width: 620px;  
   font-weight: bold;
   color: white;
+}
+
+.timestamp {
+  font-size: small;
+  color: grey;
 }

@@ -14,6 +14,7 @@ class RecipeCalculator {
   constructor(rawData) {
     this.recipeToBuilding = this._mapRecipesToBuildings(rawData.producers)
     this.outputToRecipe = this._mapOutputs(rawData.recipes)
+    this.dataTimestamp = rawData.timestamp
   }
 
   _mapRecipesToBuildings(producers) {

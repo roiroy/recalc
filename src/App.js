@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('exports.json')
+    fetch('roidata/exports.json')
       .then(response => response.json())
       .then(data => new RecipeCalculator(data))
       .then(calculator => this.setState({calculator: calculator}) )
@@ -28,10 +28,7 @@ class App extends React.Component {
       return (<p><b>Load error</b> {this.state.loadError.toString()}</p>)
     } else if (this.state.calculator) {
       return (
-        <div>
-          <h2>Rise of Industry Ratio Calculator</h2>
-          <CalculatorRoot calculator={this.state.calculator}/>
-        </div>
+        <CalculatorRoot calculator={this.state.calculator}/>
       )
     } else {
       return (<p>Loading...</p>)
@@ -74,6 +71,7 @@ class CalculatorRoot extends React.Component {
         <Treebeard data={this.state.treebeardTree} onToggle={this.onBuildTreeToggle} style={TreebeardTheme} />
         <h4>Totals</h4>
         <Treebeard data={this.state.treebeardTotals} onToggle={this.onTotalsTreeToggle} style={TreebeardTheme} />
+        <p className='timestamp'>Data harvested on {this.props.calculator.dataTimestamp}</p>
       </div>)
   }
 
@@ -84,11 +82,11 @@ class CalculatorRoot extends React.Component {
     })
   }
 
-  toTreebeardTree(node) {
+  toTreebeardTree(node, level=0) {
     return {
       name: this._recipeHeader(node.output, node.recipeQty, node.factory),
       toggled: true,
-      children: node.inputs.map(i => this.toTreebeardTree(i))
+      children: node.inputs.map(i => this.toTreebeardTree(i, level + 1))
     }
   }
 
@@ -98,18 +96,18 @@ class CalculatorRoot extends React.Component {
       const totals = entry[1]
       return {
         name: (<Fragment>{this._recipeHeader(output, totals.total, totals.factory)}{this._renderCosts(totals)}</Fragment>),
-        toggled: false,
+        toggled: true,
         children: totals.towards.length <= 1 ? [] : totals.towards.map(t => Object.assign({
           name: (<Fragment>{t.recipe} {pf(t.recipeQty)} ({pf(t.fraction)} of all)</Fragment>),
           toggled: false,
-          children: [],
+          children: null,
         }))
       }
     });
     r.push({
       name: (<Fragment>
-        <span class="totalHeader">Total excluding hubs</span>
-        <span class="totalCost">{pc(grandTotal)}</span>
+        <span className="totalHeader">Total excluding hubs</span>
+        <span className="totalCost">{pc(grandTotal)}</span>
         </Fragment>),
       toggled: true,
       children: []
@@ -117,21 +115,21 @@ class CalculatorRoot extends React.Component {
     return r
   }
 
-  _recipeHeader(output, recipeQty, factory) {
+  _recipeHeader(output, recipeQty, factory, extraClassName='') {
     return (<Fragment>
-      <span class="productName">{output}</span>
-      <span class="recipeQty">{pf(recipeQty)}</span>
-      <span class="factory">{factory}</span>
+      <span className={"productName " + extraClassName}>{output}</span>
+      <span className="recipeQty">{pf(recipeQty)}</span>
+      <span className="factory">{factory}</span>
       </Fragment>)
   }
 
   _renderCosts(totals) {
     return (<Fragment>
-      <span class="recipeQtyRoundUp">{totals.roundFactoryCount}</span>
+      <span className="recipeQtyRoundUp">{totals.roundFactoryCount}</span>
       &nbsp;x&nbsp;
-      <span class="singleFactoryCost">{pc(totals.singleFactoryCost)}</span>
+      <span className="singleFactoryCost">{pc(totals.singleFactoryCost)}</span>
       &nbsp;=&nbsp;
-      <span class="totalCost">{pc(totals.totalFactoryCost)}</span>
+      <span className="totalCost">{pc(totals.totalFactoryCost)}</span>
       </Fragment>)
   }
 
