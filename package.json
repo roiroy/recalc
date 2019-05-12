@@ -2,6 +2,7 @@
   "name": "recalc",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/recalc",
   "dependencies": {
     "fraction.js": "^4.0.12",
     "react": "^16.8.6",
