@@ -96,7 +96,7 @@ class CalculatorRoot extends React.Component {
       const totals = entry[1]
       return {
         name: (<Fragment>{this._recipeHeader(output, totals.total, totals.factory)}{this._renderCosts(totals)}</Fragment>),
-        toggled: true,
+        toggled: false,
         children: totals.towards.length <= 1 ? [] : totals.towards.map(t => Object.assign({
           name: (<Fragment>{t.recipe} {pf(t.recipeQty)} ({pf(t.fraction)} of all)</Fragment>),
           toggled: false,
@@ -104,15 +104,14 @@ class CalculatorRoot extends React.Component {
         }))
       }
     });
-    r.push({
+    return {
       name: (<Fragment>
         <span className="totalHeader">Total excluding hubs</span>
         <span className="totalCost">{pc(grandTotal)}</span>
         </Fragment>),
       toggled: true,
-      children: []
-    })
-    return r
+      children: r,
+    }
   }
 
   _recipeHeader(output, recipeQty, factory, extraClassName='') {
@@ -154,8 +153,7 @@ class CalculatorRoot extends React.Component {
   }
 
   onTotalsTreeToggle(node, toggled) {
-    // TODO: why you no work?
-    // this._onTreeToggle(node, toggled, 'treebeardTotals', 'totalsCursor')
+    this._onTreeToggle(node, toggled, 'treebeardTotals', 'totalsCursor')
   }
 }
 

@@ -17,10 +17,12 @@
     <style>
       h2#title {
         display: inline-block;
+        margin-bottom: 0;
       }
 
       #toplinks {
         display: inline-block;
+        margin-bottom: 0;
       }
 
       #toplinks li {
@@ -36,18 +38,34 @@
       a:visited {
         color: darkorange;
       }
+
+      #root {
+        max-width: 900px;
+      }
+
+      #notes {
+        max-width: 900px;
+      }
     </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <h2 id='title'>Rise of Industry Ratio Calculator</h2>
     <ul id='toplinks'>
       <li><a href='https://github.com/roiroy/recalc'>sources</a></li>
       <li><a href='#notes'>notes</a></li>
     </ul>
+    <hr/>
+
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <hr />
+
+    <br/>
     <h3><a name='notes'></a>Notes</h3>
-    
+    <ul id='notes'>
+      <li>All farms and gatherers numbers are for fields and harvesters e.g. if the calculator says you need 3 apple farms, that really means 3 apple farm <b>fields</b>.
+        3 water gatherers means 3 water pumps, <b>not</b> 3 water siphons</li>
+      <li>Related to the above, the cost of hubs (e.g. water siphons, the farm main building) is not included anywhere yet</li>
+      <li>The raw data used by this calculator can be found <a href='roidata/exports.json'>here</a></li>
+    </ul>
   </body>
 </html>
