@@ -130,3 +130,7 @@ body {
 .tooltipHolder:hover .tooltipText {
   visibility: visible;
 }
+
+#settings {
+  padding: 4px 4px;
+}
