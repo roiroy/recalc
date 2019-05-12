@@ -84,7 +84,7 @@ class CalculatorRoot extends React.Component {
 
   toTreebeardTree(node, level=0) {
     return {
-      name: this._recipeHeader(node.output, node.recipeQty, node.factory),
+      name: this._recipeHeader(node.output, node.recipeQty, node.factory, 'pn'+level),
       toggled: true,
       children: node.inputs.map(i => this.toTreebeardTree(i, level + 1))
     }

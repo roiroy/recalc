@@ -11,6 +11,34 @@ body {
   width: 220px;
 }
 
+.pn0 {
+  width: calc(220px - 0*19px);
+}
+
+.pn1 {
+  width: calc(220px - 1*19px);
+}
+
+.pn2 {
+  width: calc(220px - 2*19px);
+}
+
+.pn3 {
+  width: calc(220px - 3*19px);
+}
+
+.pn4 {
+  width: calc(220px - 4*19px);
+}
+
+.pn5 {
+  width: calc(220px - 5*19px);
+}
+
+.pn6 {
+  width: calc(220px - 6*19px);
+}
+
 .recipeQty {
   color: white;
   font-weight: bold;
