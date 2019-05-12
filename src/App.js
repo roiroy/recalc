@@ -68,11 +68,47 @@ class CalculatorRoot extends React.Component {
         <CalculatorInput recipes={recipes}
           recipe={this.state.recipe} requiredQty={this.state.requiredQty} onChange={this.onInputChange} />
         <h4>Build tree</h4>
+        {this.buildTreeHeader()}
         <Treebeard data={this.state.treebeardTree} onToggle={this.onBuildTreeToggle} style={TreebeardTheme} />
         <h4>Totals</h4>
+        {this.totalsTreeHeader()}
         <Treebeard data={this.state.treebeardTotals} onToggle={this.onTotalsTreeToggle} style={TreebeardTheme} />
         <p className='timestamp'>Data harvested on {this.props.calculator.dataTimestamp}</p>
       </div>)
+  }
+
+  buildTreeHeader() {
+    return (
+      <div id='buildTreeHeader' className='treeHeader'>
+        <div className='filler'>&nbsp;</div>
+        {this.recipeHeader()}
+      </div>
+    )
+  }
+
+  recipeHeader() {
+    return (
+      <Fragment>
+        <span className="productName header">Product</span>
+        <span className="demand header tooltipHolder">Demand*<span className='tooltipText'>per 15 days</span></span>
+        <span className="recipeQty header tooltipHolder">x<span className="tooltipText">number of factories</span></span>
+        <span className="factory header">Factory Building</span>
+      </Fragment>
+    )
+  }
+
+  totalsTreeHeader() {
+    return (
+      <div id='totalsHeader' className='treeHeader'>
+        <div className='filler'>&nbsp;</div>
+        {this.recipeHeader()}
+        <span className="recipeQtyRoundUp header tooltipHolder">⌈x⌉<span className="tooltipText">number of factories rounded up</span></span>
+        <span className="header">&nbsp;x&nbsp;</span>
+        <span className="singleFactoryCost header tooltipHolder">Cost<span className="tooltipText">single factory or field cost</span></span>
+        <span className="header">&nbsp;=&nbsp;</span>
+        <span className="totalCost header">Total</span>
+      </div>
+    )
   }
 
   onInputChange(state) {
@@ -84,7 +120,7 @@ class CalculatorRoot extends React.Component {
 
   toTreebeardTree(node, level=0) {
     return {
-      name: this._recipeHeader(node.output, node.recipeQty, node.factory, 'pn'+level),
+      name: this._recipeHeader(node.output, node.demand_per_day.mul(15), node.recipeQty, node.factory, 'pn'+level),
       toggled: true,
       children: node.inputs.map(i => this.toTreebeardTree(i, level + 1))
     }
@@ -95,7 +131,7 @@ class CalculatorRoot extends React.Component {
       const output = entry[0]
       const totals = entry[1]
       return {
-        name: (<Fragment>{this._recipeHeader(output, totals.total, totals.factory)}{this._renderCosts(totals)}</Fragment>),
+        name: (<Fragment>{this._recipeHeader(output, totals.demand_per_day.mul(15), totals.total, totals.factory)}{this._renderCosts(totals)}</Fragment>),
         toggled: false,
         children: totals.towards.length <= 1 ? [] : totals.towards.map(t => Object.assign({
           name: (<Fragment>{t.recipe} {pf(t.recipeQty)} ({pf(t.fraction)} of all)</Fragment>),
@@ -114,9 +150,10 @@ class CalculatorRoot extends React.Component {
     }
   }
 
-  _recipeHeader(output, recipeQty, factory, extraClassName='') {
+  _recipeHeader(output, demand, recipeQty, factory, extraClassName='') {
     return (<Fragment>
       <span className={"productName " + extraClassName}>{output}</span>
+      <span className="demand">{pf(demand)}</span>
       <span className="recipeQty">{pf(recipeQty)}</span>
       <span className="factory">{factory}</span>
       </Fragment>)
@@ -206,9 +243,9 @@ class CalculatorInput extends React.Component {
 }
 
 function pf(f) {
-  const _render_proper_fraction = (n, d) => (<Fragment><sup>{n}</sup>&frasl;<sub>{d}</sub></Fragment>)
   if (f === null || f === undefined) return '<NOOO>'
   if (f.n === 0) return '0'
+  const _render_proper_fraction = (n, d) => (<Fragment><sup>{n}</sup>&frasl;<sub>{d}</sub></Fragment>)
   // return f.n.toString() + "/" + f.d.toString()
   let i = Math.floor(f.n / f.d)
   let r = f.n % f.d

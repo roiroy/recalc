@@ -44,11 +44,21 @@ body {
   font-weight: bold;
   display: inline-block;
   width: 70px;
+  text-align: right;
+  margin-right: 5px;
+}
+
+.demand {
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+  margin-right: 5px;
 }
 
 .factory {
   display: inline-block;
   width: 170px;
+  padding-left: 10px;
 }
 
 .totalCost {
@@ -71,7 +81,7 @@ body {
 
 .totalHeader {
   display: inline-block;
-  width: 639px;  
+  width: 749px;  
   font-weight: bold;
   color: white;
 }
@@ -79,4 +89,44 @@ body {
 .timestamp {
   font-size: small;
   color: grey;
+}
+
+.header {
+  color: white;
+  font-weight: bold;
+}
+
+.treeHeader {
+  padding-top: 8px;
+  background-color: #303040;
+  padding-bottom: 8px;
+}
+
+#buildTreeHeader .filler {
+  display: inline-block;
+  width: 24px;
+}
+
+#totalsHeader .filler {
+  display: inline-block;
+  width: 43px;
+}
+
+.tooltipHolder .tooltipText {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 5px;
+  border-radius: 6px;
+  transform: translateY(-20px);
+  font-weight: normal;
+ 
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltipHolder:hover .tooltipText {
+  visibility: visible;
 }
