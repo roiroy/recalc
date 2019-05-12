@@ -3,6 +3,10 @@ import './App.css';
 
 import {Treebeard} from 'react-treebeard'
 import Fraction from 'fraction.js'
+import TreebeardTheme from "./TreebeardTheme.js";
+import RecipeCalculator from "./RecipeCalculator.js"
+
+const Fragment = React.Fragment
 
 
 class App extends React.Component {
@@ -41,19 +45,20 @@ class CalculatorRoot extends React.Component {
     this.onBuildTreeToggle = this.onBuildTreeToggle.bind(this)
     this.onTotalsTreeToggle = this.onTotalsTreeToggle.bind(this)
     this.onInputChange = this.onInputChange.bind(this)
-    this.state = this._recompute({}, 'Water', Fraction(10, 15))
+    this.state = this._recompute({}, 'BerryPie', Fraction(8, 15))
   }
 
   _recompute(target, product, qty_per_day) {
     const buildTree = this.props.calculator.buildTree(product, qty_per_day)
     const totals = this.props.calculator.totals(buildTree)
+    const grandTotal = Object.values(totals).map(t => t.totalFactoryCost).reduce((a, b) => a + b, 0)
     return Object.assign(target, {
       recipe: product,
       requiredQty: qty_per_day,
       tree: buildTree,
       treebeardTree: this.toTreebeardTree(buildTree),
       totals: totals,
-      treebeardTotals: this.toTreebeardTotals(totals),
+      treebeardTotals: this.toTreebeardTotals(totals, grandTotal),
     })
   }
 
@@ -66,9 +71,9 @@ class CalculatorRoot extends React.Component {
         <CalculatorInput recipes={recipes}
           recipe={this.state.recipe} requiredQty={this.state.requiredQty} onChange={this.onInputChange} />
         <h4>Build tree</h4>
-        <Treebeard data={this.state.treebeardTree} onToggle={this.onBuildTreeToggle} />
+        <Treebeard data={this.state.treebeardTree} onToggle={this.onBuildTreeToggle} style={TreebeardTheme} />
         <h4>Totals</h4>
-        <Treebeard data={this.state.treebeardTotals} onToggle={this.onTotalsTreeToggle} />
+        <Treebeard data={this.state.treebeardTotals} onToggle={this.onTotalsTreeToggle} style={TreebeardTheme} />
       </div>)
   }
 
@@ -81,27 +86,53 @@ class CalculatorRoot extends React.Component {
 
   toTreebeardTree(node) {
     return {
-      name: node.output + " " + pf(node.recipeQty),
+      name: this._recipeHeader(node.output, node.recipeQty, node.factory),
       toggled: true,
       children: node.inputs.map(i => this.toTreebeardTree(i))
     }
   }
 
-  toTreebeardTotals(totals) {
+  toTreebeardTotals(totals, grandTotal) {
     const r = Object.entries(totals).map(entry => {
       const output = entry[0]
       const totals = entry[1]
       return {
-        name: output + " " + pf(totals.total),
-        toggled: true,
+        name: (<Fragment>{this._recipeHeader(output, totals.total, totals.factory)}{this._renderCosts(totals)}</Fragment>),
+        toggled: false,
         children: totals.towards.length <= 1 ? [] : totals.towards.map(t => Object.assign({
-          name: t.recipe + " " + pf(t.recipeQty) + " (" + pf(t.fraction) + " of all)",
+          name: (<Fragment>{t.recipe} {pf(t.recipeQty)} ({pf(t.fraction)} of all)</Fragment>),
           toggled: false,
           children: [],
         }))
       }
     });
+    r.push({
+      name: (<Fragment>
+        <span class="totalHeader">Total excluding hubs</span>
+        <span class="totalCost">{pc(grandTotal)}</span>
+        </Fragment>),
+      toggled: true,
+      children: []
+    })
     return r
+  }
+
+  _recipeHeader(output, recipeQty, factory) {
+    return (<Fragment>
+      <span class="productName">{output}</span>
+      <span class="recipeQty">{pf(recipeQty)}</span>
+      <span class="factory">{factory}</span>
+      </Fragment>)
+  }
+
+  _renderCosts(totals) {
+    return (<Fragment>
+      <span class="recipeQtyRoundUp">{totals.roundFactoryCount}</span>
+      &nbsp;x&nbsp;
+      <span class="singleFactoryCost">{pc(totals.singleFactoryCost)}</span>
+      &nbsp;=&nbsp;
+      <span class="totalCost">{pc(totals.totalFactoryCost)}</span>
+      </Fragment>)
   }
 
   _onTreeToggle(node, toggled, treeName, cursorName) {
@@ -122,15 +153,6 @@ class CalculatorRoot extends React.Component {
 
   onBuildTreeToggle(node, toggled) {
     this._onTreeToggle(node, toggled, 'treebeardTree', 'buildCursor')
-    // const {treebeardTree, buildCursor} = this.state;
-    // if (buildCursor) {
-    //   buildCursor.active = false;
-    // }
-    // node.active = true;
-    // if (node.children) { 
-    //     node.toggled = toggled; 
-    // }
-    // this.setState(() => ({buildCursor: node, treebeardTree: Object.assign({}, treebeardTree)}));
   }
 
   onTotalsTreeToggle(node, toggled) {
@@ -151,7 +173,6 @@ class CalculatorInput extends React.Component {
   }
 
   render() {
-    // TODO: the quantity will be wrong if this.state.requiredQty doesn't have d=15
     const n = 15 * this.state.requiredQty.n / this.state.requiredQty.d
     return (
       <form>
@@ -160,9 +181,9 @@ class CalculatorInput extends React.Component {
           {this.renderOptions()}
         </select>
         &nbsp;
-        Required quantity: 
+        Required quantity:&nbsp;
         <input type='text' onChange={this.onQtyChanged} value={n} />
-        per 15 days
+        &nbsp;per 15 days
       </form>
     )
   }
@@ -189,102 +210,17 @@ class CalculatorInput extends React.Component {
 }
 
 function pf(f) {
+  const _render_proper_fraction = (n, d) => (<Fragment><sup>{n}</sup>&frasl;<sub>{d}</sub></Fragment>)
   if (f === null || f === undefined) return '<NOOO>'
+  if (f.n === 0) return '0'
   // return f.n.toString() + "/" + f.d.toString()
   let i = Math.floor(f.n / f.d)
   let r = f.n % f.d
-  let parts = []
-  if (i !== 0) parts.push(i.toString())
-  if (r !== 0) parts.push((f.n - f.d * i).toString() + '/' + f.d)
-  return parts.join('+') || '0'
+  return (<Fragment>{i === 0 ? '' : i}{r === 0 ? '' : _render_proper_fraction(f.n - f.d * i, f.d)}</Fragment>)
 }
 
-class BuildTreeNode {
-  constructor(output, recipeQty, inputs) {
-    this.output = output
-    this.recipeQty = recipeQty
-    this.inputs = inputs
-  }
-}
-
-class RecipeCalculator {
-  constructor(rawData) {
-    this.recipeToBuilding = this.mapRecipesToBuildings(rawData.producers)
-    this.outputToRecipe = this.mapOutputs(rawData.recipes)
-  }
-
-  mapRecipesToBuildings(producers) {
-    let r = {}
-    for (let p of producers) {
-      for (let recipe of p.recipes) {
-        r[recipe] = p.name
-      }
-    }
-    return r
-  }
-
-  mapOutputs(recipes) {
-    let r = {}
-    for (let recipe of recipes) {
-      if (recipe.name === 'WaterWell') continue
-      for (let out of recipe.outputs) {
-        r[out.name] = recipe
-      }
-    }
-    return r
-  }
-
-  outputQtyPerDay(recipe, output) {
-    return Fraction(recipe.outputs.find(o => o.name === output).amount, Math.floor(recipe.days))
-  }
-
-  buildTree(product, qty_per_day) {
-    // console.log("PRODUCT", product, qty_per_day)
-    let productRecipe = this.outputToRecipe[product]
-    let outputQtyPerDay = this.outputQtyPerDay(productRecipe, product)
-    let recipeQty = qty_per_day.div(outputQtyPerDay)
-    let input_qty = (inputCount) => recipeQty.mul(Fraction(inputCount, Math.floor(productRecipe.days)))
-    return new BuildTreeNode(product, recipeQty, productRecipe.inputs.map(input => 
-      this.buildTree(input.name, input_qty(input.amount))))
-  }
-
-  totals(root) {
-    const t = this._totals(root)
-    this.addFractions(root, t)
-    return t
-  }
-
-  _totals(node) {
-    let newTotal = () => Object.assign({total: Fraction(0), towards: []})
-
-    let addTotals = (target, a) => {
-      for (let [recipe, otherTotal] of Object.entries(a)) {
-        if (!target.hasOwnProperty(recipe)) target[recipe] = newTotal();
-        target[recipe].total = target[recipe].total.add(otherTotal.total)
-      }
-    }
-
-    let t = {[node.output]: {total: node.recipeQty, towards: []}}
-    for (let input of node.inputs) {
-      addTotals(t, this.totals(input))
-    }
-    return t
-  }
-
-  addFractions(root, totals) {
-    const traverse = (node) => {
-      for (let input of node.inputs) {
-        const inTotal = totals[input.output]
-        inTotal.towards.push({
-          recipe: node.output,
-          recipeQty: input.recipeQty,
-          fraction: input.recipeQty.div(totals[input.output].total)
-        })
-        traverse(input)
-      }
-    }
-    return traverse(root)
-  }
+function pc(c) {
+  return "$" + c;
 }
 
 export default App;

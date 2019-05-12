@@ -1,5 +1,5 @@
 {
-  "timestamp": "2019-05-11T11:35:27.6175512Z",
+  "timestamp": "2019-05-12T10:40:30.8869387Z",
   "recipes": [
     {
       "name": "Adhesive",
@@ -3154,6 +3154,8 @@
   "producers": [
     {
       "name": "BreweryFactory",
+      "cost": 600000.0,
+      "harvesterCost": null,
       "recipes": [
         "Yeast",
         "HardCider",
@@ -3167,6 +3169,8 @@
     },
     {
       "name": "FurnitureFactory",
+      "cost": 650000.0,
+      "harvesterCost": null,
       "recipes": [
         "WoodenPlanks",
         "WoodenBarrel",
@@ -3182,18 +3186,24 @@
     },
     {
       "name": "CoalGatherer",
+      "cost": 150000.0,
+      "harvesterCost": 100000.0,
       "recipes": [
         "CoalMine"
       ]
     },
     {
       "name": "CopperGatherer",
+      "cost": 175000.0,
+      "harvesterCost": 125000.0,
       "recipes": [
         "CopperMine"
       ]
     },
     {
       "name": "CropFarm",
+      "cost": 175000.0,
+      "harvesterCost": 125000.0,
       "recipes": [
         "Wheat",
         "Potatoes",
@@ -3203,6 +3213,8 @@
     },
     {
       "name": "DrinksFactory",
+      "cost": 650000.0,
+      "harvesterCost": null,
       "recipes": [
         "SodaWater",
         "OrangeJuice",
@@ -3214,12 +3226,16 @@
     },
     {
       "name": "FishingGatherer",
+      "cost": 150000.0,
+      "harvesterCost": 100000.0,
       "recipes": [
         "Fish"
       ]
     },
     {
       "name": "FoodFactory",
+      "cost": 550000.0,
+      "harvesterCost": null,
       "recipes": [
         "Cheese",
         "Flour",
@@ -3240,12 +3256,16 @@
     },
     {
       "name": "GasGatherer",
+      "cost": 175000.0,
+      "harvesterCost": 125000.0,
       "recipes": [
         "GasPump"
       ]
     },
     {
       "name": "GlassworksSmelter",
+      "cost": 600000.0,
+      "harvesterCost": null,
       "recipes": [
         "CopperWire",
         "Steel",
@@ -3264,6 +3284,8 @@
     },
     {
       "name": "ElectronicsFactory",
+      "cost": 500000.0,
+      "harvesterCost": null,
       "recipes": [
         "Diodes",
         "Stovetop",
@@ -3282,12 +3304,16 @@
     },
     {
       "name": "IronGatherer",
+      "cost": 150000.0,
+      "harvesterCost": 100000.0,
       "recipes": [
         "IronMine"
       ]
     },
     {
       "name": "LivestockFarm",
+      "cost": 350000.0,
+      "harvesterCost": 300000.0,
       "recipes": [
         "Chickens",
         "Cows",
@@ -3296,24 +3322,32 @@
     },
     {
       "name": "LumberyardGatherer",
+      "cost": 125000.0,
+      "harvesterCost": 75000.0,
       "recipes": [
         "Lumberyard"
       ]
     },
     {
       "name": "OilSeaGatherer",
+      "cost": 175000.0,
+      "harvesterCost": 125000.0,
       "recipes": [
         "OilDrillOffshore"
       ]
     },
     {
       "name": "OilGatherer",
+      "cost": 175000.0,
+      "harvesterCost": 125000.0,
       "recipes": [
         "OilDrill"
       ]
     },
     {
       "name": "OrchardFarm",
+      "cost": 150000.0,
+      "harvesterCost": 100000.0,
       "recipes": [
         "Apples",
         "Grapes",
@@ -3324,6 +3358,8 @@
     },
     {
       "name": "PaperFactory",
+      "cost": 650000.0,
+      "harvesterCost": null,
       "recipes": [
         "DeluxeBooks",
         "Paper Roll",
@@ -3340,6 +3376,8 @@
     },
     {
       "name": "PetrochemicalFactory",
+      "cost": 550000.0,
+      "harvesterCost": null,
       "recipes": [
         "Plastic",
         "Chemicals",
@@ -3356,6 +3394,8 @@
     },
     {
       "name": "PlantationFarm",
+      "cost": 175000.0,
+      "harvesterCost": 125000.0,
       "recipes": [
         "Berries",
         "Cotton",
@@ -3365,6 +3405,8 @@
     },
     {
       "name": "PreservationFactory",
+      "cost": 550000.0,
+      "harvesterCost": null,
       "recipes": [
         "Soup",
         "ChickenSoup",
@@ -3375,12 +3417,16 @@
     },
     {
       "name": "SandGatherer",
+      "cost": 125000.0,
+      "harvesterCost": 75000.0,
       "recipes": [
         "Sand"
       ]
     },
     {
       "name": "TextileFactory",
+      "cost": 450000.0,
+      "harvesterCost": null,
       "recipes": [
         "Fibers",
         "Dye",
@@ -3395,12 +3441,16 @@
     },
     {
       "name": "WaterGatherer",
+      "cost": 150000.0,
+      "harvesterCost": 100000.0,
       "recipes": [
         "Water"
       ]
     },
     {
       "name": "Automotive Factory",
+      "cost": 2500000.0,
+      "harvesterCost": null,
       "recipes": [
         "InteriorBody",
         "ExteriorBody",
@@ -3412,30 +3462,40 @@
     },
     {
       "name": "AssemblyFactory",
+      "cost": 5E+07,
+      "harvesterCost": null,
       "recipes": [
         "CarPrototype"
       ]
     },
     {
       "name": "ComputerFactory",
+      "cost": 5E+07,
+      "harvesterCost": null,
       "recipes": [
         "First Computer"
       ]
     },
     {
       "name": "DinnerFactory",
+      "cost": 5E+07,
+      "harvesterCost": null,
       "recipes": [
         "Premade Dinner"
       ]
     },
     {
       "name": "WaterWell",
+      "cost": 125000.0,
+      "harvesterCost": 75000.0,
       "recipes": [
         "WaterWell"
       ]
     },
     {
       "name": "ToyFactory",
+      "cost": 600000.0,
+      "harvesterCost": null,
       "recipes": [
         "Fluff",
         "Toy Furniture",

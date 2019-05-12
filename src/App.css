@@ -1,4 +1,49 @@
 body {
   padding-left: 20pt;
   padding-right: 20pt;
+  color: #DB860F;
+  background-color: #202020;
+}
+
+.productName {
+  color: white;
+  display: inline-block;
+  width: 120pt;
+}
+
+.recipeQty {
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  width: 50pt;
+}
+
+.factory {
+  display: inline-block;
+  width: 140pt;
+}
+
+.totalCost {
+  text-align: right;
+  display: inline-block;
+  width: 80pt;
+}
+
+.recipeQtyRoundUp {
+  text-align: right;
+  display: inline-block;
+  width: 25pt;
+}
+
+.singleFactoryCost {
+  text-align: right;
+  display: inline-block;
+  width: 55pt;
+}
+
+.totalHeader {
+  display: inline-block;
+  width: 420pt;  
+  font-weight: bold;
+  color: white;
 }
