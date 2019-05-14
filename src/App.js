@@ -156,8 +156,8 @@ class CalculatorRoot extends React.Component {
       return {
         name: (<Fragment>{this._recipeHeader(output, totals.demand_per_day.mul(15), totals.total, totals.factory)}{this._renderCosts(totals)}</Fragment>),
         toggled: false,
-        children: totals.towards.length <= 1 ? [] : totals.towards.map(t => Object.assign({
-          name: (<Fragment>{t.recipe} {this.pf(t.recipeQty)} ({this.pf(t.fraction)} of all)</Fragment>),
+        children: totals.towards.map(t => Object.assign({
+          name: (<Fragment>{t.fraction.valueOf() === 1.0 ? 'all' : this.pf(t.fraction)} towards {t.recipe} ({this.pf(t.recipeQty)} buildings)</Fragment>),
           toggled: false,
           children: null,
         }))
