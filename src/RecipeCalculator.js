@@ -16,6 +16,8 @@ class RecipeCalculator {
     this.recipeToBuilding = this._mapRecipesToBuildings(rawData.producers)
     this.outputToRecipe = this._mapOutputs(rawData.recipes)
     this.dataTimestamp = rawData.timestamp
+
+    this.recipeToBuilding[''] = {} // TODO:
   }
 
   _mapRecipesToBuildings(producers) {
@@ -43,12 +45,25 @@ class RecipeCalculator {
     return Fraction(recipe.outputs.find(o => o.name === output).amount, Math.floor(recipe.days))
   }
 
+  buildTreeFromMany(requirements) {
+    this.outputToRecipe[''] = {
+      days: 1,
+      name: '',
+      inputs: requirements.map((r) => ({name: r.recipe, amount: r.qtyPerDay})),
+      outputs: [{name: '', amount: 1}],
+    }
+    return this.buildTree('', Fraction(1, 1))
+  }
+
   buildTree(product, qtyPerDay) {
     // console.log("PRODUCT", product, qtyPerDay)
-    let productRecipe = this.outputToRecipe[product]
+    return this.buildTreeFromRecipe(product, this.outputToRecipe[product], qtyPerDay)
+  }
+
+  buildTreeFromRecipe(product, productRecipe, qtyPerDay) {
     let outputQtyPerDay = this.outputQtyPerDay(productRecipe, product)
     let recipeQty = qtyPerDay.div(outputQtyPerDay)
-    let input_qty = (inputCount) => recipeQty.mul(Fraction(inputCount, Math.floor(productRecipe.days)))
+    let input_qty = (inputCount) => recipeQty.mul(inputCount).div(Math.floor(productRecipe.days))
     return new BuildTreeNode(productRecipe.name, product, qtyPerDay, recipeQty, 
       productRecipe.inputs.map(input => this.buildTree(input.name, input_qty(input.amount))),
       this.recipeToBuilding[productRecipe.name].name)
@@ -74,6 +89,8 @@ class RecipeCalculator {
     for (let input of node.inputs) {
       addTotals(t, this.totals(input))
     }
+    
+    delete t['']
     return t
   }
 
