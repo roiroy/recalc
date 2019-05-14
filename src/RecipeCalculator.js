@@ -1,10 +1,10 @@
 import Fraction from 'fraction.js'
 
 class BuildTreeNode {
-  constructor(recipe, output, demand_per_day, recipeQty, inputs, factory) {
+  constructor(recipe, output, demandPerDay, recipeQty, inputs, factory) {
     this.recipe = recipe
     this.output = output
-    this.demand_per_day = demand_per_day
+    this.demandPerDay = demandPerDay
     this.recipeQty = recipeQty
     this.inputs = inputs
     this.factory = factory
@@ -43,13 +43,13 @@ class RecipeCalculator {
     return Fraction(recipe.outputs.find(o => o.name === output).amount, Math.floor(recipe.days))
   }
 
-  buildTree(product, qty_per_day) {
-    // console.log("PRODUCT", product, qty_per_day)
+  buildTree(product, qtyPerDay) {
+    // console.log("PRODUCT", product, qtyPerDay)
     let productRecipe = this.outputToRecipe[product]
     let outputQtyPerDay = this.outputQtyPerDay(productRecipe, product)
-    let recipeQty = qty_per_day.div(outputQtyPerDay)
+    let recipeQty = qtyPerDay.div(outputQtyPerDay)
     let input_qty = (inputCount) => recipeQty.mul(Fraction(inputCount, Math.floor(productRecipe.days)))
-    return new BuildTreeNode(productRecipe.name, product, qty_per_day, recipeQty, 
+    return new BuildTreeNode(productRecipe.name, product, qtyPerDay, recipeQty, 
       productRecipe.inputs.map(input => this.buildTree(input.name, input_qty(input.amount))),
       this.recipeToBuilding[productRecipe.name].name)
   }
@@ -99,7 +99,7 @@ class RecipeCalculator {
       total.isHarvester = !!building.harvesterCost
       total.roundFactoryCount = Math.ceil(total.total.valueOf())
       total.totalFactoryCost = total.roundFactoryCount * total.singleFactoryCost
-      total.demand_per_day = total.total.mul(this.outputQtyPerDay(productRecipe, product))
+      total.demandPerDay = total.total.mul(this.outputQtyPerDay(productRecipe, product))
     }
   }
 }

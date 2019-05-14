@@ -47,18 +47,21 @@ class CalculatorRoot extends React.Component {
     this.state = {
       settings: {
         numbers: 'fractions',
+        perDays: 15,
       }
     }
-    this.state = this._recompute(this.state, 'ChickenMeat', Fraction(11, 15))
+    this.state = this._recompute(this.state, 'ChickenMeat', 11)
   }
 
-  _recompute(target, product, qty_per_day) {
-    const buildTree = this.props.calculator.buildTree(product, qty_per_day)
+  _recompute(target, product, requiredN) {
+    const qtyPerDay = Fraction(requiredN, this.state.settings.perDays)
+    console.log("QTY PER DAY!", qtyPerDay)
+    const buildTree = this.props.calculator.buildTree(product, qtyPerDay)
     const totals = this.props.calculator.totals(buildTree)
     const grandTotal = Object.values(totals).map(t => t.totalFactoryCost).reduce((a, b) => a + b, 0)
     const calculationState = {
       recipe: product,
-      requiredQty: qty_per_day,
+      requiredN: requiredN,
       tree: buildTree,
       totals: totals,
       grandTotal: grandTotal,
@@ -74,11 +77,9 @@ class CalculatorRoot extends React.Component {
   }
 
   onSettingsChange(newSettings) {
-    this.setState((prevState) => ({
-      settings: Object.assign(prevState.settings, newSettings)
-    }))
+    this.setState((prevState) => ({ settings: Object.assign(prevState.settings, newSettings) }))
     // double update but meh
-    this.setState((prevState) => this._trees(prevState))
+    this.setState((prevState) => this._recompute({}, prevState.recipe, prevState.requiredN))
   }
 
   render() {
@@ -87,8 +88,8 @@ class CalculatorRoot extends React.Component {
     return (
       <div>
         <h4>What and how much do you desire?</h4>
-        <CalculatorInput recipes={recipes}
-          recipe={this.state.recipe} requiredQty={this.state.requiredQty} onChange={this.onInputChange} />
+        <CalculatorInput recipes={recipes} recipe={this.state.recipe} 
+          requiredN={this.state.requiredN} perDays={this.state.settings.perDays} onChange={this.onInputChange} />
         <CalculatorSettings settings={this.state.settings} onChange={this.onSettingsChange} />
         <h4>Build tree</h4>
         {this.buildTreeHeader()}
@@ -113,7 +114,7 @@ class CalculatorRoot extends React.Component {
     return (
       <Fragment>
         <span className="productName header">Product</span>
-        <span className="demand header tooltipHolder">Demand*<span className='tooltipText'>per 15 days</span></span>
+        <span className="demand header tooltipHolder">Demand<span className='tooltipText'>per {this.state.settings.perDays} days</span></span>
         <span className="recipeQty header tooltipHolder">x<span className="tooltipText">number of factories</span></span>
         <span className="factory header">Factory Building</span>
       </Fragment>
@@ -137,13 +138,13 @@ class CalculatorRoot extends React.Component {
   onInputChange(state) {
     this.setState((prevState) => {
       const newState = Object.assign({}, prevState, state)
-      return this._recompute(state, newState.recipe, newState.requiredQty)
+      return this._recompute(state, newState.recipe, newState.requiredN)
     })
   }
 
   toTreebeardTree(node, level=0) {
     return {
-      name: this._recipeHeader(node.output, node.demand_per_day.mul(15), node.recipeQty, node.factory, 'pn'+level),
+      name: this._recipeHeader(node.output, node.demandPerDay, node.recipeQty, node.factory, 'pn'+level),
       toggled: true,
       children: node.inputs.map(i => this.toTreebeardTree(i, level + 1))
     }
@@ -154,7 +155,7 @@ class CalculatorRoot extends React.Component {
       const output = entry[0]
       const totals = entry[1]
       return {
-        name: (<Fragment>{this._recipeHeader(output, totals.demand_per_day.mul(15), totals.total, totals.factory)}{this._renderCosts(totals)}</Fragment>),
+        name: (<Fragment>{this._recipeHeader(output, totals.demandPerDay, totals.total, totals.factory)}{this._renderCosts(totals)}</Fragment>),
         toggled: false,
         children: totals.towards.map(t => Object.assign({
           name: (<Fragment>{t.fraction.valueOf() === 1.0 ? 'all' : this.pf(t.fraction)} towards {t.recipe} ({this.pf(t.recipeQty)} buildings)</Fragment>),
@@ -173,10 +174,10 @@ class CalculatorRoot extends React.Component {
     }
   }
 
-  _recipeHeader(output, demand, recipeQty, factory, extraClassName='') {
+  _recipeHeader(output, demandPerDay, recipeQty, factory, extraClassName='') {
     return (<Fragment>
       <span className={"productName " + extraClassName}>{output}</span>
-      <span className="demand">{this.pf(demand)}</span>
+      <span className="demand">{this.pf(demandPerDay.mul(this.state.settings.perDays))}</span>
       <span className="recipeQty">{this.pf(recipeQty)}</span>
       <span className="factory">{factory}</span>
       </Fragment>)
@@ -224,27 +225,22 @@ class CalculatorRoot extends React.Component {
 class CalculatorInput extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      recipe: props.recipe,
-      requiredQty: props.requiredQty,
-    }
     this.onRecipeChanged = this.onRecipeChanged.bind(this)
     this.onQtyChanged = this.onQtyChanged.bind(this)
   }
 
   render() {
-    const n = 15 * this.state.requiredQty.n / this.state.requiredQty.d
     return (
-      <form>
+      <Fragment>
         Recipe: 
-        <select onChange={this.onRecipeChanged} value={this.state.recipe}>
+        <select onChange={this.onRecipeChanged} value={this.props.recipe}>
           {this.renderOptions()}
         </select>
         &nbsp;
         Required quantity:&nbsp;
-        <input type='text' onChange={this.onQtyChanged} value={n} />
-        &nbsp;per 15 days
-      </form>
+        <input type='number' onChange={this.onQtyChanged} value={this.props.requiredN} />
+        &nbsp;per {this.props.perDays} days
+      </Fragment>
     )
   }
 
@@ -256,16 +252,13 @@ class CalculatorInput extends React.Component {
 
   onRecipeChanged(event) {
     const state = { recipe: event.target.value }
-    this.setState(() => state)
     this.props.onChange(state)
   }
 
   onQtyChanged(event) {
     const intVal = parseFloat(event.target.value)
     if (isNaN(intVal)) return
-    const state = { requiredQty: Fraction(intVal, 15) }
-    this.setState(() => state)
-    this.props.onChange(state)
+    this.props.onChange({requiredN: intVal})
   }
 }
 
@@ -284,11 +277,17 @@ class CalculatorSettings extends React.Component {
   render() {
     return (
       <div id='settings'>
-        <input id='fractions' type='radio' name='numbers' value='fractions' checked={this.props.settings.numbers === 'fractions'} onChange={this.onChange}/>
-        <label for='fractions'>fractions</label>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <input id='decimals' type='radio' name='numbers' value='decimals' checked={this.props.settings.numbers === 'decimals'} onChange={this.onChange}/>
-        <label for='decimals'>decimals</label>
+        <p>
+          <label for='perDays'>Per </label><input id='perDays' type='number' name='perDays' value={this.props.settings.perDays} onChange={this.onChange}/>
+          <label for='perDays'> days </label> (required quantity and demand will be shown per this many days)
+        </p>
+        <p>
+          <label for='fractions'>Fractions</label>
+          <input id='fractions' type='radio' name='numbers' value='fractions' checked={this.props.settings.numbers === 'fractions'} onChange={this.onChange}/>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label for='decimals'>Decimals</label>
+          <input id='decimals' type='radio' name='numbers' value='decimals' checked={this.props.settings.numbers === 'decimals'} onChange={this.onChange}/>
+        </p>
       </div>
     )
   }

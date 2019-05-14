@@ -32,6 +32,14 @@
   width: calc(220px - 6*19px);
 }
 
+.pn7 {
+  width: calc(220px - 7*19px);
+}
+
+.pn8 {
+  width: calc(220px - 8*19px);
+}
+
 .recipeQty {
   color: white;
   font-weight: bold;
@@ -128,4 +136,9 @@
 
 #settings {
   padding: 4px 4px;
+}
+
+#settings p {
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
