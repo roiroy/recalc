@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 
+import roiData from './roidata/exports.json';
 import {Treebeard} from 'react-treebeard'
 import Fraction from 'fraction.js'
 import TreebeardTheme from "./TreebeardTheme.js";
@@ -10,29 +11,8 @@ import { recipeDecorators, emptyContainerDecorators } from "./TreebeardDecorator
 const Fragment = React.Fragment
 
 class App extends React.Component {
-  state = {
-    calculator: null,
-    loadError: null,
-  }
-
-  componentDidMount() {
-    fetch('roidata/exports.json')
-      .then(response => response.json())
-      .then(data => new RecipeCalculator(data))
-      .then(calculator => this.setState({calculator: calculator}) )
-      .catch(error => this.setState({loadError: error}))
-  }
-
   render() {
-    if (this.state.loadError) {
-      return (<p><b>Load error</b> {this.state.loadError.toString()}</p>)
-    } else if (this.state.calculator) {
-      return (
-        <CalculatorRoot calculator={this.state.calculator}/>
-      )
-    } else {
-      return (<p>Loading...</p>)
-    }
+    return <CalculatorRoot calculator={new RecipeCalculator(roiData)}/>
   }
 }
 
