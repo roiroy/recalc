@@ -5,9 +5,9 @@ import {Treebeard} from 'react-treebeard'
 import Fraction from 'fraction.js'
 import TreebeardTheme from "./TreebeardTheme.js";
 import RecipeCalculator from "./RecipeCalculator.js"
+import { recipeDecorators, emptyContainerDecorators } from "./TreebeardDecorators.js"
 
 const Fragment = React.Fragment
-
 
 class App extends React.Component {
   state = {
@@ -135,9 +135,10 @@ class CalculatorRoot extends React.Component {
 
   toTreebeardTree(node, level=0) {
     return {
-      name: this._recipeHeader(node.output, node.demandPerDay, node.recipeQty, node.factory, 'pn'+level),
+      name: level === 0 ? null : this._recipeHeader(node.output, node.demandPerDay, node.recipeQty, node.factory, 'pn'+(level-1)),
       toggled: true,
-      children: node.inputs.map(i => this.toTreebeardTree(i, level + 1))
+      children: node.inputs.map(i => this.toTreebeardTree(i, level + 1)),
+      decorators: level === 0 ? emptyContainerDecorators : recipeDecorators,
     }
   }
 
@@ -145,11 +146,12 @@ class CalculatorRoot extends React.Component {
     const r = Object.entries(totals).map(([output, totals]) => ({
         name: (<Fragment>{this._recipeHeader(output, totals.demandPerDay, totals.total, totals.factory)}{this._renderCosts(totals)}</Fragment>),
         toggled: false,
-        children: totals.towards.filter(t => t.recipe != '').map(t => Object.assign({
+        children: totals.towards.length <= 1 ? [] : totals.towards.filter(t => t.recipe !== '').map(t => Object.assign({
           name: (<Fragment>{t.fraction.valueOf() === 1.0 ? 'all' : this.pf(t.fraction)} towards {t.recipe} ({this.pf(t.recipeQty)} buildings)</Fragment>),
           toggled: false,
           children: null,
-        }))
+        })),
+        decorators: recipeDecorators,
     }))
     return {
       name: (<Fragment>
@@ -162,7 +164,7 @@ class CalculatorRoot extends React.Component {
   }
 
   _recipeHeader(output, demandPerDay, recipeQty, factory, extraClassName='') {
-    return output === '' ? '' : (<Fragment>
+    return output === '' ? null : (<Fragment>
       <span className={"productName " + extraClassName}>{output}</span>
       <span className="demand">{this.pf(demandPerDay.mul(this.state.settings.perDays))}</span>
       <span className="recipeQty">{this.pf(recipeQty)}</span>

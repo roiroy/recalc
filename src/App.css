@@ -104,15 +104,10 @@
   white-space: nowrap;
 }
 
-#buildTreeHeader .filler {
-  display: inline-block;
-  width: 24px;
-  white-space: nowrap;
-}
-
-#totalsHeader .filler {
+.treeHeader .filler {
   display: inline-block;
   width: 43px;
+  white-space: nowrap;
 }
 
 .tooltipHolder .tooltipText {
@@ -141,4 +136,10 @@
 #settings p {
   margin-top: 8px;
   margin-bottom: 8px;
+}
+
+.emptyToggle {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: right;
 }
