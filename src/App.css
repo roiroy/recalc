@@ -143,3 +143,43 @@
   line-height: 25px;
   text-align: right;
 }
+
+.fakeLink {
+  background: none;
+  border:none; 
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.fakeLink:hover {
+  background-color: #303040;
+}
+
+.closeButton {
+  margin-left: 8px;
+}
+
+.addRecipeButton {
+  text-decoration: underline;
+  padding-bottom: 5px;
+}
+
+#calculatorInput {
+  list-style-type: none;
+  padding-left: 4px;
+}
+
+#calculatorInput li {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.inputNumber {
+  width: 60px;
+  text-align: right;
+}

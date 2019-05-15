@@ -74,7 +74,7 @@ class CalculatorRoot extends React.Component {
   onSettingsChange(newSettings) {
     this.setState((prevState) => ({ settings: Object.assign(prevState.settings, newSettings) }))
     // double update but meh
-    this.setState((prevState) => this._recompute({}, [{recipe: prevState.recipe, requiredN: prevState.requiredN}]))
+    this.setState((prevState) => this._recompute({}, prevState.required))
   }
 
   render() {
@@ -146,8 +146,10 @@ class CalculatorRoot extends React.Component {
     const r = Object.entries(totals).map(([output, totals]) => ({
         name: (<Fragment>{this._recipeHeader(output, totals.demandPerDay, totals.total, totals.factory)}{this._renderCosts(totals)}</Fragment>),
         toggled: false,
-        children: totals.towards.length <= 1 ? [] : totals.towards.filter(t => t.recipe !== '').map(t => Object.assign({
-          name: (<Fragment>{t.fraction.valueOf() === 1.0 ? 'all' : this.pf(t.fraction)} towards {t.recipe} ({this.pf(t.recipeQty)} buildings)</Fragment>),
+        children: totals.towards.length <= 1 ? [] : totals.towards.map(t => Object.assign({
+          name: (<Fragment>
+                   {t.fraction.valueOf() === 1.0 ? 'all' : this.pf(t.fraction)} towards {t.recipe || "requirement"} ({this.pf(t.recipeQty)} buildings)
+                 </Fragment>),
           toggled: false,
           children: null,
         })),
@@ -223,13 +225,13 @@ class CalculatorInput extends React.Component {
     return (
       <ul id='calculatorInput'>
         {this.props.required.map((req, index) => (
-          <li>
-            <CalculatorInputRow key={index} recipes={this.props.recipes} recipe={req.recipe} 
+          <li key={index}>
+            <CalculatorInputRow recipes={this.props.recipes} recipe={req.recipe} 
                 requiredN={req.requiredN} perDays={this.props.perDays} onChange={(e) => this.onChange(index, e)} />
-            &nbsp;<a className='close' onClick={(e) => this.onRemoveRow(index)}>[x]</a>
+            <button type="button" className='closeButton fakeLink' onClick={(e) => this.onRemoveRow(index)}>🗙</button>
           </li>
         ))}
-        <li><a onClick={this.onAddAnotherClick}>add another recipe</a></li>
+        <li key="bottomest"><button onClick={this.onAddAnotherClick} className='addRecipeButton fakeLink'>add another recipe</button></li>
       </ul>
       )
   }
@@ -270,13 +272,13 @@ class CalculatorInputRow extends React.Component {
   render() {
     return (
       <Fragment>
-        Recipe: 
+        Recipe:&nbsp;
         <select onChange={this.onRecipeChanged} value={this.props.recipe}>
           {this._renderRecipeOptions()}
         </select>
         &nbsp;
-        Required quantity:&nbsp;
-        <input type='number' onChange={this.onQtyChanged} value={this.props.requiredN} />
+        Quantity:&nbsp;
+        <input type='number' onChange={this.onQtyChanged} value={this.props.requiredN} className="inputNumber" />
         &nbsp;per {this.props.perDays} days
       </Fragment>
     )
@@ -315,14 +317,15 @@ class CalculatorSettings extends React.Component {
     return (
       <div id='settings'>
         <p>
-          <label for='perDays'>Per </label><input id='perDays' type='number' name='perDays' value={this.props.settings.perDays} onChange={this.onChange}/>
-          <label for='perDays'> days </label> (required quantity and demand will be shown per this many days)
+          <label htmlFor='perDays'>Per </label>
+          <input id='perDays' type='number' name='perDays' value={this.props.settings.perDays} onChange={this.onChange} className="inputNumber" />
+          <label htmlFor='perDays'> days </label> (required quantity and demand will be shown per this many days)
         </p>
         <p>
-          <label for='fractions'>Fractions</label>
+          <label htmlFor='fractions'>Fractions</label>
           <input id='fractions' type='radio' name='numbers' value='fractions' checked={this.props.settings.numbers === 'fractions'} onChange={this.onChange}/>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <label for='decimals'>Decimals</label>
+          <label htmlFor='decimals'>Decimals</label>
           <input id='decimals' type='radio' name='numbers' value='decimals' checked={this.props.settings.numbers === 'decimals'} onChange={this.onChange}/>
         </p>
       </div>
