@@ -54,8 +54,9 @@ class CalculatorRoot extends React.Component {
   }
 
   _recompute(target, requiredProducts) {
-    const requirements = requiredProducts.map(({recipe, requiredN}) => 
-        ({recipe, qtyPerDay: Fraction(requiredN, this.state.settings.perDays)}))
+    const requirements = requiredProducts
+        .filter(req => req.requiredN > 0)
+        .map(({recipe, requiredN}) => ({recipe, qtyPerDay: Fraction(requiredN, this.state.settings.perDays)}))
     const buildTree = this.props.calculator.buildTreeFromMany(requirements)
     const totals = this.props.calculator.totals(buildTree)
     const grandTotal = Object.values(totals).map(t => t.totalFactoryCost).reduce((a, b) => a + b, 0)
@@ -64,15 +65,10 @@ class CalculatorRoot extends React.Component {
       tree: buildTree,
       totals: totals,
       grandTotal: grandTotal,
+      treebeardTree: this.toTreebeardTree(buildTree),
+      treebeardTotals: this.toTreebeardTotals(totals, grandTotal),
     }
-    return Object.assign(target, calculationState, this._trees(calculationState))
-  }
-
-  _trees(state) {
-    return {
-      treebeardTree: this.toTreebeardTree(state.tree),
-      treebeardTotals: this.toTreebeardTotals(state.totals, state.grandTotal),
-    }
+    return Object.assign(target, calculationState)
   }
 
   onSettingsChange(newSettings) {
@@ -89,12 +85,12 @@ class CalculatorRoot extends React.Component {
         <h4>What and how much do you desire?</h4>
         <CalculatorInput required={this.state.required} recipes={recipes} perDays={this.state.settings.perDays} onChange={this.onInputChange} />
         <CalculatorSettings settings={this.state.settings} onChange={this.onSettingsChange} />
-        <h4>Build tree</h4>
-        {this.buildTreeHeader()}
-        <Treebeard data={this.state.treebeardTree} onToggle={this.onBuildTreeToggle} style={TreebeardTheme} />
         <h4>Totals</h4>
         {this.totalsTreeHeader()}
         <Treebeard data={this.state.treebeardTotals} onToggle={this.onTotalsTreeToggle} style={TreebeardTheme} />
+        <h4>Build tree</h4>
+        {this.buildTreeHeader()}
+        <Treebeard data={this.state.treebeardTree} onToggle={this.onBuildTreeToggle} style={TreebeardTheme} />
         <p className='timestamp'>Data harvested on {this.props.calculator.dataTimestamp}</p>
       </div>)
   }
@@ -146,19 +142,15 @@ class CalculatorRoot extends React.Component {
   }
 
   toTreebeardTotals(totals, grandTotal) {
-    const r = Object.entries(totals).map(entry => {
-      const output = entry[0]
-      const totals = entry[1]
-      return {
+    const r = Object.entries(totals).map(([output, totals]) => ({
         name: (<Fragment>{this._recipeHeader(output, totals.demandPerDay, totals.total, totals.factory)}{this._renderCosts(totals)}</Fragment>),
         toggled: false,
-        children: totals.towards.map(t => Object.assign({
+        children: totals.towards.filter(t => t.recipe != '').map(t => Object.assign({
           name: (<Fragment>{t.fraction.valueOf() === 1.0 ? 'all' : this.pf(t.fraction)} towards {t.recipe} ({this.pf(t.recipeQty)} buildings)</Fragment>),
           toggled: false,
           children: null,
         }))
-      }
-    });
+    }))
     return {
       name: (<Fragment>
         <span className="totalHeader">Total excluding hubs</span>
