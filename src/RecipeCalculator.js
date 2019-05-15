@@ -100,7 +100,6 @@ class RecipeCalculator {
         const inTotal = totals[input.output]
         inTotal.towards.push({
           recipe: node.recipe,
-          product: node.product,
           recipeQty: input.recipeQty,
           fraction: input.recipeQty.div(totals[input.output].total)
         })
@@ -117,7 +116,25 @@ class RecipeCalculator {
       total.roundFactoryCount = Math.ceil(total.total.valueOf())
       total.totalFactoryCost = total.roundFactoryCount * total.singleFactoryCost
       total.demandPerDay = total.total.mul(this.outputQtyPerDay(productRecipe, product))
+      total.towards = this._flatten_towards(total.towards)
     }
+  }
+
+  _flatten_towards(towards) {
+    const m = {}
+    for (const t of towards) {
+      var c = m[t.recipe]
+      if (!c) {
+        m[t.recipe] = c = {
+          recipe: t.recipe, 
+          recipeQty: Fraction(0, 1), 
+          fraction: Fraction(0, 1) 
+        }
+      }
+      c.recipeQty = c.recipeQty.add(t.recipeQty)
+      c.fraction = c.fraction.add(t.fraction)
+    }
+    return Object.values(m)
   }
 }
 
