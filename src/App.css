@@ -183,3 +183,7 @@
   width: 60px;
   text-align: right;
 }
+
+.treeContainer:hover {
+  background-color: #303040;
+}

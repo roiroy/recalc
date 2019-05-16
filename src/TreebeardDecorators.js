@@ -13,8 +13,9 @@ class RecipeContainer extends Treebeard.defaultProps.decorators.Container {
         const {style, decorators, onClick, node} = this.props;
         return (
             <div
+                className="treeContainer"
                 onClick={onClick}
-                style={node.active ? {...style.container} : {...style.link}}>
+                style={{...style.link} /*node.active ? {...style.container} : {...style.link}*/}>
                 {node.children === null ? null : 
                     (node.children.length === 0 ? this.renderEmptyToggle() : this.renderToggle()) }
                 <decorators.Header node={node} style={style.header}/>
@@ -36,9 +37,8 @@ RecipeContainer.propTypes = {
 };
 
 
-const _copyDefaultDecorators= (o => Object.assign({}, Treebeard.defaultProps.decorators, o))
-var recipeDecorators = _copyDefaultDecorators({ Container: RecipeContainer })
-var emptyContainerDecorators = _copyDefaultDecorators({ Container: InvisibleContainer })
+var recipeDecorators = {...Treebeard.defaultProps.decorators, Container: RecipeContainer}
+var emptyContainerDecorators = {...Treebeard.defaultProps.decorators, Container: InvisibleContainer }
 
 export {
     recipeDecorators,

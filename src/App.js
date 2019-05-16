@@ -52,9 +52,9 @@ class CalculatorRoot extends React.Component {
   }
 
   onSettingsChange(newSettings) {
-    this.setState((prevState) => ({ settings: Object.assign(prevState.settings, newSettings) }))
+    this.setState(prevState => ({ settings: {...prevState.settings, ...newSettings} }))
     // double update but meh
-    this.setState((prevState) => this._recompute({}, prevState.required))
+    this.setState(prevState => this._recompute({}, prevState.required))
   }
 
   render() {
@@ -126,7 +126,7 @@ class CalculatorRoot extends React.Component {
     const r = Object.entries(totals).map(([output, totals]) => ({
         name: (<Fragment>{this._recipeHeader(output, totals.demandPerDay, totals.total, totals.factory)}{this._renderCosts(totals)}</Fragment>),
         toggled: false,
-        children: totals.towards.length <= 1 ? [] : totals.towards.map(t => Object.assign({
+        children: totals.towards.length <= 1 ? [] : totals.towards.map(t => ({
           name: (<Fragment>
                    {t.fraction.valueOf() === 1.0 ? 'all' : this.pf(t.fraction)} towards {t.recipe || "requirement"} ({this.pf(t.recipeQty)} buildings)
                  </Fragment>),
@@ -265,7 +265,7 @@ class CalculatorInputRow extends React.Component {
   }
 
   _renderRecipeOptions() {
-    return this.props.recipes.map(recipe => (
+    return this.props.recipes.filter(recipe => recipe !== '').map(recipe => (
       <option key={recipe} value={recipe}>{recipe}</option>
     ))
   }
@@ -289,7 +289,10 @@ class CalculatorSettings extends React.Component {
   }
 
   onChange(e) {
-    const { name, value } = e.target;
+    var { name, value } = e.target;
+    if (name === 'perDays') {
+      value = Math.max(1, value)
+    }
     this.props.onChange({[name]: value})
   }
 
