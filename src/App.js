@@ -28,33 +28,24 @@ class CalculatorRoot extends React.Component {
       settings: {
         numbers: 'fractions',
         perDays: 15,
-      }
+      },
+      required: [{recipe: 'ChickenMeat', requiredN: 11}]
     }
-    this.state = this._recompute(this.state, [{recipe: 'ChickenMeat', requiredN: 11}])
+    this.state = this._recompute(this.state)
   }
 
-  _recompute(target, requiredProducts) {
-    const requirements = requiredProducts
+  _recompute(state) {
+    const requirements = state.required
         .filter(req => req.requiredN > 0)
-        .map(({recipe, requiredN}) => ({recipe, qtyPerDay: Fraction(requiredN, this.state.settings.perDays)}))
+        .map(({recipe, requiredN}) => ({recipe, qtyPerDay: Fraction(requiredN, state.settings.perDays)}))
     const buildTree = this.props.calculator.buildTreeFromMany(requirements)
     const totals = this.props.calculator.totals(buildTree)
     const grandTotal = Object.values(totals).map(t => t.totalFactoryCost).reduce((a, b) => a + b, 0)
-    const calculationState = {
-      required: requiredProducts,
-      tree: buildTree,
-      totals: totals,
-      grandTotal: grandTotal,
-      treebeardTree: this.toTreebeardTree(buildTree),
-      treebeardTotals: this.toTreebeardTotals(totals, grandTotal),
-    }
-    return Object.assign(target, calculationState)
+    return {...state, buildTree, totals, grandTotal}
   }
 
   onSettingsChange(newSettings) {
-    this.setState(prevState => ({ settings: {...prevState.settings, ...newSettings} }))
-    // double update but meh
-    this.setState(prevState => this._recompute({}, prevState.required))
+    this.setState(prevState => this._recompute({...prevState, settings: {...prevState.settings, ...newSettings}}))
   }
 
   render() {
@@ -67,10 +58,10 @@ class CalculatorRoot extends React.Component {
         <CalculatorSettings settings={this.state.settings} onChange={this.onSettingsChange} />
         <h4>Totals</h4>
         {this.totalsTreeHeader()}
-        <Treebeard data={this.state.treebeardTotals} onToggle={this.onTotalsTreeToggle} style={TreebeardTheme} />
+        <Treebeard data={this.toTreebeardTotals(this.state.totals, this.state.grandTotal)} onToggle={this.onTotalsTreeToggle} style={TreebeardTheme} />
         <h4>Build tree</h4>
         {this.buildTreeHeader()}
-        <Treebeard data={this.state.treebeardTree} onToggle={this.onBuildTreeToggle} style={TreebeardTheme} />
+        <Treebeard data={this.toTreebeardTree(this.state.buildTree)} onToggle={this.onBuildTreeToggle} style={TreebeardTheme} />
         <p className='timestamp'>Data harvested on {this.props.calculator.dataTimestamp}</p>
       </div>)
   }
@@ -110,7 +101,7 @@ class CalculatorRoot extends React.Component {
   }
 
   onInputChange(required) {
-    this.setState((prevState) => this._recompute(prevState, required))
+    this.setState((prevState) => this._recompute({...prevState, required}))
   }
 
   toTreebeardTree(node, level=0) {
