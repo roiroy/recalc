@@ -41,7 +41,9 @@ class CalculatorRoot extends React.Component {
     const buildTree = this.props.calculator.buildTreeFromMany(requirements)
     const totals = this.props.calculator.totals(buildTree)
     const grandTotal = Object.values(totals).map(t => t.totalFactoryCost).reduce((a, b) => a + b, 0)
-    return {...state, buildTree, totals, grandTotal}
+    const treebeardTree = this.toTreebeardTree(buildTree)
+    const treebeardTotals = this.toTreebeardTotals(totals, grandTotal)
+    return {...state, buildTree, totals, grandTotal, treebeardTree, treebeardTotals}
   }
 
   onSettingsChange(newSettings) {
@@ -58,10 +60,10 @@ class CalculatorRoot extends React.Component {
         <CalculatorSettings settings={this.state.settings} onChange={this.onSettingsChange} />
         <h4>Totals</h4>
         {this.totalsTreeHeader()}
-        <Treebeard data={this.toTreebeardTotals(this.state.totals, this.state.grandTotal)} onToggle={this.onTotalsTreeToggle} style={TreebeardTheme} />
+        <Treebeard data={this.state.treebeardTotals} onToggle={this.onTotalsTreeToggle} style={TreebeardTheme} />
         <h4>Build tree</h4>
         {this.buildTreeHeader()}
-        <Treebeard data={this.toTreebeardTree(this.state.buildTree)} onToggle={this.onBuildTreeToggle} style={TreebeardTheme} />
+        <Treebeard data={this.state.treebeardTree} onToggle={this.onBuildTreeToggle} style={TreebeardTheme} />
         <p className='timestamp'>Data harvested on {this.props.calculator.dataTimestamp}</p>
       </div>)
   }
@@ -155,9 +157,8 @@ class CalculatorRoot extends React.Component {
       </Fragment>)
   }
 
-  _onTreeToggle(node, toggled, treeName, cursorName) {
+  _onTreeToggle(node, toggled, cursorName) {
     const cursor = this.state[cursorName]
-    const tree = this.state[treeName]
     if (cursor) {
       cursor.active = false;
     }
@@ -167,16 +168,15 @@ class CalculatorRoot extends React.Component {
     }
     this.setState(() => ({
       [cursorName]: node, 
-      [treeName]: Object.assign({}, tree)
     }));
   }
 
   onBuildTreeToggle(node, toggled) {
-    this._onTreeToggle(node, toggled, 'treebeardTree', 'buildCursor')
+    this._onTreeToggle(node, toggled, 'buildCursor')
   }
 
   onTotalsTreeToggle(node, toggled) {
-    this._onTreeToggle(node, toggled, 'treebeardTotals', 'totalsCursor')
+    this._onTreeToggle(node, toggled, 'totalsCursor')
   }
 
   pf(f) {
@@ -227,7 +227,6 @@ class CalculatorInput extends React.Component {
 
   onChange(index, changedRequirement) {
     var newRequired = [...this.props.required]
-    console.log(changedRequirement, index, newRequired)
     Object.assign(newRequired[index], changedRequirement)
     this.props.onChange(newRequired)
   }
